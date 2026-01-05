@@ -80,8 +80,8 @@
 - [学习资源推荐](./00-学习指南/学习资源推荐.md)
 
 ### [01-Java核心](./01-Java核心/)
-- [Java基础](./01-Java核心/01-Java基础/)
-- [JVM](./01-Java核心/02-JVM/)
+- [Java基础](./01-Java核心/Java基础-完整教程.md)
+- [JVM](./01-Java核心/JVM-完整教程.md)
 
 ### [02-Spring生态](./02-Spring生态/)
 - [Spring Framework](./02-Spring生态/01-Spring-Framework-完整教程.md)
