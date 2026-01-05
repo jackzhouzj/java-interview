@@ -91,6 +91,7 @@
 - [Spring Cache](./02-Spring生态/05-Spring-Cache-完整教程.md)
 - [Spring Cloud](./02-Spring生态/06-Spring-Cloud-完整教程.md)
 - [Spring Cloud Alibaba](./02-Spring生态/07-Spring-Cloud-Alibaba-完整教程.md)
+- [Spring websocket](./02-Spring生态/08-Spring-WebSocket-完整教程.md)
 
 ### [03-持久层框架](./03-持久层框架/)
 - [MyBatis](./03-持久层框架/MyBatis-完整教程.md)

@@ -47,12 +47,19 @@
 - Sentinel集成
 - Seata集成
 
+### [08-Spring-WebSocket](./08-Spring-WebSocket-完整教程.md/) 🔥
+- WebSocket协议与STOMP
+- 实时消息推送
+- 安全认证与权限控制
+- 集群部署方案
+
 ## 🎯 学习目标
 
 - [ ] 掌握Spring IoC和AOP原理
 - [ ] 能够独立搭建Spring Boot项目
 - [ ] 理解Spring MVC请求处理流程
 - [ ] 掌握Spring Cloud微服务开发
+- [ ] 能够实现WebSocket实时通信
 
 ## ⏱️ 预计学习时长
 
