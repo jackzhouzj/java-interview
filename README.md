@@ -57,6 +57,14 @@
 1. ⭕ 大数据技术
 2. ⭕ Spring AI
 
+### 阶段八：架构与实战 (2-3个月) 🔥
+1. ✅ 架构设计
+2. ✅ 测试体系
+3. ✅ 安全体系
+4. ✅ 接口设计
+5. ✅ 代码质量
+6. ✅ 实战项目
+
 ## 📊 技术重要性矩阵
 
 | 技术 | 重要性 | 难度 | 学习优先级 |
@@ -66,9 +74,14 @@
 | Spring Boot | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | P0 |
 | MySQL | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | P0 |
 | Redis | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | P0 |
+| 并发编程 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | P0 |
+| 设计模式 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | P0 |
 | Spring Cloud | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | P1 |
 | Docker/K8s | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | P1 |
 | Kafka | ⭐⭐⭐⭐ | ⭐⭐⭐ | P1 |
+| 架构设计 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | P1 |
+| 测试体系 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | P1 |
+| 安全体系 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | P1 |
 | Elasticsearch | ⭐⭐⭐ | ⭐⭐⭐⭐ | P2 |
 | 大数据 | ⭐⭐ | ⭐⭐⭐⭐⭐ | P3 |
 
@@ -189,6 +202,52 @@
 - [性能优化](./11-补充知识/性能优化-完整教程.md)
 - [LiteFlow](./11-补充知识/LiteFlow-完整教程.md)
 
+### [12-架构设计](./12-架构设计/) 🔥
+- 高并发架构设计
+- 分布式系统设计
+- 微服务架构
+- 领域驱动设计(DDD)
+- 高可用架构
+
+### [13-测试体系](./13-测试体系/)
+- 单元测试(JUnit 5)
+- Mock测试(Mockito)
+- Spring Boot测试
+- 集成测试
+- 性能测试(JMeter)
+- 测试驱动开发(TDD)
+
+### [14-安全体系](./14-安全体系/)
+- OAuth2.0和JWT
+- 数据加密
+- 安全防护(SQL注入/XSS/CSRF)
+- HTTPS/SSL/TLS
+- 安全审计
+
+### [15-接口设计](./15-接口设计/)
+- RESTful API设计
+- Swagger/OpenAPI
+- GraphQL
+- API网关
+- API版本管理
+
+### [16-代码质量](./16-代码质量/)
+- 阿里巴巴Java开发手册
+- Code Review
+- SonarQube
+- 代码重构
+- 技术债务管理
+
+### [17-实战项目](./17-实战项目/) 🔥
+- 电商系统
+- 秒杀系统
+- IM即时通讯
+- 支付系统
+- 短链系统
+- 博客系统
+- 权限管理系统
+- 任务调度平台
+
 ## 🚀 快速开始
 
 ### 第一步：评估你的基础
@@ -241,20 +300,28 @@
 #### 路径1：Web开发工程师（6-8个月）
 ```
 Java基础 → Spring Boot → MySQL → Redis → MyBatis → 
-Spring Cloud → RabbitMQ → Docker → ELK
+Spring Cloud → RabbitMQ → Docker → ELK → 测试体系 → 实战项目
 ```
 
 #### 路径2：微服务架构师（8-10个月）
 ```
-Java基础 → JVM → Spring Boot → MySQL → Redis → 
+Java基础 → JVM → 并发编程 → Spring Boot → MySQL → Redis → 
 Spring Cloud → Nacos → Sentinel → Seata → Dubbo → 
-Kafka → Kubernetes → SkyWalking
+Kafka → Kubernetes → SkyWalking → 架构设计 → 实战项目
 ```
 
 #### 路径3：大数据开发工程师（10-12个月）
 ```
 Java基础 → 并发编程 → MySQL → Redis → Kafka → 
-Hadoop → Spark → Flink → Hive → Elasticsearch
+Hadoop → Spark → Flink → Hive → Elasticsearch → 实战项目
+```
+
+#### 路径4：资深Java工程师（12-18个月）⭐推荐
+```
+Java基础 → JVM → 并发编程 → 设计模式 → Spring Boot → 
+MySQL → Redis → MyBatis-Plus → Spring Cloud → 
+消息队列 → 微服务治理 → Docker/K8s → 
+架构设计 → 测试体系 → 安全体系 → 性能优化 → 实战项目
 ```
 
 ### 学习资源
