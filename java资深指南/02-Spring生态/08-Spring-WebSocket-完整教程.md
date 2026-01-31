@@ -1860,7 +1860,7 @@ public class ClusterWebSocketConfig implements WebSocketMessageBrokerConfigurer 
 - 《Spring微服务实战》
 
 ### 相关技术
-- [Spring MVC](./03-Spring-MVC-完整教程.md) - Web开发基础
+- [Spring MVC](03-Spring-MVC-完整教程.md) - Web开发基础
 - [Spring Security](https://spring.io/projects/spring-security) - 安全认证
 - [RabbitMQ](../../05-消息队列/RabbitMQ-完整教程.md) - 消息代理
 - [Redis](../../04-数据库/Redis-完整教程.md) - 缓存和消息
@@ -1921,7 +1921,7 @@ public class ClusterWebSocketConfig implements WebSocketMessageBrokerConfigurer 
 - [Spring Security](https://spring.io/projects/spring-security)：深入学习安全认证
 - [RabbitMQ](../../05-消息队列/RabbitMQ-完整教程.md)：学习消息队列
 - [Redis](../../04-数据库/Redis-完整教程.md)：学习缓存和发布订阅
-- [Spring Cloud](./06-Spring-Cloud-完整教程.md)：学习微服务架构
+- [Spring Cloud](06-Spring-Cloud-完整教程.md)：学习微服务架构
 
 **实战项目推荐**：
 1. 在线客服系统

@@ -22,7 +22,7 @@
   - 丰富的负载均衡和容错机制
   - 强大的服务治理能力
   - SPI扩展机制
-- **教程**: [Dubbo-完整教程.md](./Dubbo-完整教程.md)
+- **教程**: [Dubbo-完整教程.md](Dubbo-完整教程.md)
 
 ### 2. Spring Cloud OpenFeign
 - **重要程度**: ⭐⭐⭐⭐
@@ -33,7 +33,7 @@
   - 与Spring Cloud无缝集成
   - 支持负载均衡和熔断
   - 简单易用
-- **教程**: [Spring-Cloud-OpenFeign-完整教程.md](./Spring-Cloud-OpenFeign-完整教程.md)
+- **教程**: [Spring-Cloud-OpenFeign-完整教程.md](Spring-Cloud-OpenFeign-完整教程.md)
 
 ### 3. gRPC
 - **重要程度**: ⭐⭐⭐⭐
@@ -44,7 +44,7 @@
   - Protocol Buffers序列化
   - 支持流式调用
   - 跨语言支持
-- **教程**: [gRPC-完整教程.md](./gRPC-完整教程.md)
+- **教程**: [gRPC-完整教程.md](gRPC-完整教程.md)
 
 ## 🔄 技术对比
 

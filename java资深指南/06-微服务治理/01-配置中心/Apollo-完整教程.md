@@ -1213,6 +1213,6 @@ public void onChange(ConfigChangeEvent changeEvent) {
 5. 关注Apollo社区，了解最新特性
 
 **下一步学习**：
-- [Spring Cloud Config](./Spring-Cloud-Config-完整教程.md)
-- [Nacos配置中心](./Nacos-完整教程.md)
+- [Spring Cloud Config](Spring-Cloud-Config-完整教程.md)
+- [Nacos配置中心](Nacos-完整教程.md)
 - [Spring Cloud Gateway](../02-服务网关/Spring-Cloud-Gateway-完整教程.md)

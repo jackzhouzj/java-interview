@@ -1615,6 +1615,6 @@ spring:
 5. 关注Nacos社区，了解最新特性
 
 **下一步学习**：
-- [Apollo配置中心](./Apollo-完整教程.md)
-- [Spring Cloud Config](./Spring-Cloud-Config-完整教程.md)
+- [Apollo配置中心](Apollo-完整教程.md)
+- [Spring Cloud Config](Spring-Cloud-Config-完整教程.md)
 - [Spring Cloud Gateway](../02-服务网关/Spring-Cloud-Gateway-完整教程.md)

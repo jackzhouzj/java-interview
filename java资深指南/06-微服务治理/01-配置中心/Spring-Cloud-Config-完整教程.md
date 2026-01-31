@@ -1758,8 +1758,8 @@ spring:
 ### 相关技术
 - [Spring Cloud Bus](https://spring.io/projects/spring-cloud-bus)
 - [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix)
-- [Nacos配置中心](./Nacos-完整教程.md)
-- [Apollo配置中心](./Apollo-完整教程.md)
+- [Nacos配置中心](Nacos-完整教程.md)
+- [Apollo配置中心](Apollo-完整教程.md)
 
 ---
 
@@ -1777,7 +1777,7 @@ spring:
 - 部署Config Server集群
 
 **下一步学习**:
-- [Nacos配置中心](./Nacos-完整教程.md) - 更强大的配置管理
-- [Apollo配置中心](./Apollo-完整教程.md) - 携程开源的配置中心
+- [Nacos配置中心](Nacos-完整教程.md) - 更强大的配置管理
+- [Apollo配置中心](Apollo-完整教程.md) - 携程开源的配置中心
 - [Spring Cloud Gateway](../Spring-Cloud-Gateway-完整教程.md) - API网关
 - [Spring Cloud Alibaba](../../02-Spring生态/07-Spring-Cloud-Alibaba-完整教程.md) - 微服务全家桶

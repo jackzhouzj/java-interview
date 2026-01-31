@@ -1481,8 +1481,8 @@ public class ExampleService {
 
 ### 相关技术
 - [Redis 完整教程](../04-数据库/02-Redis-完整教程.md)
-- [Spring Boot 完整教程](./02-Spring-Boot-完整教程.md)
-- [Spring AOP 完整教程](./01-Spring-Framework-完整教程.md#aop)
+- [Spring Boot 完整教程](02-Spring-Boot-完整教程.md)
+- [Spring AOP 完整教程](01-Spring-Framework-完整教程.md#aop)
 
 ## 📝 学习检查清单
 

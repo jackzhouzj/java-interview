@@ -20,7 +20,7 @@
 - [ZooKeeper](./03-注册中心/ZooKeeper/) - 分布式协调服务
 
 ### 04-分布式事务
-- [Seata完整教程](./Seata-完整教程.md) - 分布式事务解决方案（AT/TCC/Saga/XA模式）
+- [Seata完整教程](Seata-完整教程.md) - 分布式事务解决方案（AT/TCC/Saga/XA模式）
 
 ### [05-分布式锁](./05-分布式锁/)
 - [Redisson](./05-分布式锁/Redisson/) - Redis分布式锁
