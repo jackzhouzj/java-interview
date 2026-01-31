@@ -14,6 +14,8 @@
 
 ### AI集成
 - **Spring AI**: Spring生态的AI集成方案
+- **LangChain4j**: Java版LangChain，LLM应用开发框架 🔥
+- **向量数据库**: Pinecone、Milvus等向量存储方案 🔥
 
 ## 🎯 学习目标
 
