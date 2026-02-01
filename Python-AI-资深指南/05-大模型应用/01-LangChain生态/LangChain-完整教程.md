@@ -5,9 +5,9 @@
 ## 📚 技术概述
 
 ### 版本信息
-- **LangChain版本**：0.1+
-- **最新稳定版**：0.1.x
-- **推荐版本**：0.1.0+
+- **LangChain版本**：0.3+
+- **最新稳定版**：0.3.x
+- **推荐版本**：0.3.0+（2024-2025最新版本）
 
 ### 学习难度
 - **难度等级**：⭐⭐⭐ (中等)
@@ -15,10 +15,11 @@
 - **重要程度**：⭐⭐⭐⭐⭐ (必学)
 
 ### 前置知识
-- Python基础
+- Python 3.9+基础
 - 异步编程基础
 - LLM基本概念
 - API调用经验
+- 类型注解（Type Hints）
 
 ## 🎯 学习目标
 
@@ -90,17 +91,23 @@ LangChain生态系统
 ### 2.1 安装LangChain
 
 ```bash
-# 安装核心包
-pip install langchain
+# 🔥 推荐：安装核心包（最新版本）
+pip install langchain-core
 
 # 安装OpenAI集成
 pip install langchain-openai
 
+# 安装Anthropic集成
+pip install langchain-anthropic
+
 # 安装社区集成
 pip install langchain-community
 
-# 安装完整版（包含所有依赖）
-pip install langchain[all]
+# 安装LangChain主包（包含常用组件）
+pip install langchain
+
+# 可选：安装实验性功能
+pip install langchain-experimental
 ```
 
 ### 2.2 配置API密钥
@@ -227,24 +234,34 @@ print(response.content)
 ### 4.2 其他模型集成
 
 ```python
-# Anthropic Claude
+# 🔥 Anthropic Claude（推荐用于复杂推理）
 from langchain_anthropic import ChatAnthropic
-claude = ChatAnthropic(model="claude-3-opus-20240229")
+claude = ChatAnthropic(
+    model="claude-sonnet-4-5-20250929",  # 最新Claude模型
+    temperature=0.7
+)
 
 # Google Gemini
 from langchain_google_genai import ChatGoogleGenerativeAI
-gemini = ChatGoogleGenerativeAI(model="gemini-pro")
-
-# HuggingFace
-from langchain_community.llms import HuggingFaceHub
-hf_llm = HuggingFaceHub(
-    repo_id="google/flan-t5-large",
-    model_kwargs={"temperature": 0.7}
+gemini = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash-exp",  # 最新Gemini模型
+    temperature=0.7
 )
 
-# 本地模型（Ollama）
+# 🔥 本地模型（Ollama）- 推荐用于隐私场景
 from langchain_community.llms import Ollama
-local_llm = Ollama(model="llama2")
+local_llm = Ollama(
+    model="llama3.2",  # 最新Llama模型
+    temperature=0.7
+)
+
+# DeepSeek（高性价比选择）
+from langchain_openai import ChatOpenAI
+deepseek = ChatOpenAI(
+    model="deepseek-chat",
+    base_url="https://api.deepseek.com/v1",
+    api_key="your-deepseek-api-key"
+)
 ```
 
 ### 4.3 流式输出
@@ -411,107 +428,153 @@ print(result["review"])
 ### 6.3 LCEL (LangChain Expression Language)
 
 ```python
-# 🔥 现代化的Chain写法（推荐）
+# 🔥 现代化的Chain写法（强烈推荐，这是LangChain的核心特性）
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
 # 定义组件
 prompt = ChatPromptTemplate.from_template("讲一个关于{topic}的笑话")
-model = ChatOpenAI(model="gpt-3.5-turbo")
+model = ChatOpenAI(model="gpt-4o-mini")  # 使用最新模型
 output_parser = StrOutputParser()
 
-# 使用管道操作符组合
+# 🔥 使用管道操作符组合（LCEL核心语法）
 chain = prompt | model | output_parser
 
 # 调用
 result = chain.invoke({"topic": "程序员"})
 print(result)
 
-# 流式调用
+# 🔥 流式调用（实时输出）
 for chunk in chain.stream({"topic": "程序员"}):
     print(chunk, end="", flush=True)
+
+# 🔥 批量调用（提高效率）
+results = chain.batch([
+    {"topic": "程序员"},
+    {"topic": "AI"},
+    {"topic": "Python"}
+])
+
+# 🔥 异步调用
+import asyncio
+async def async_example():
+    result = await chain.ainvoke({"topic": "程序员"})
+    print(result)
+
+asyncio.run(async_example())
 ```
 
 ---
 
 ## 7. Agent智能体
 
-### 7.1 Agent基础
+### 7.1 Agent基础（最新API）
 
 ```python
-from langchain.agents import AgentExecutor, create_openai_functions_agent
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.tools import Tool
+# 🔥 使用最新的create_agent API（推荐）
+from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
+from langchain.tools import tool
 
-# 定义工具
+# 🔥 使用@tool装饰器定义工具（现代化写法）
+@tool
 def get_weather(location: str) -> str:
-    """获取天气信息"""
+    """获取指定地点的天气信息。
+    
+    Args:
+        location: 地点名称，例如"北京"、"上海"
+    """
     return f"{location}的天气是晴天，温度25度"
 
+@tool
 def calculate(expression: str) -> str:
-    """计算数学表达式"""
+    """计算数学表达式。
+    
+    Args:
+        expression: 数学表达式，例如"25 * 4 + 10"
+    """
     try:
         return str(eval(expression))
     except:
         return "计算错误"
 
-tools = [
-    Tool(
-        name="Weather",
-        func=get_weather,
-        description="获取指定地点的天气信息。输入应该是地点名称。"
-    ),
-    Tool(
-        name="Calculator",
-        func=calculate,
-        description="计算数学表达式。输入应该是数学表达式。"
-    )
-]
-
-# 🔥 创建Agent
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "你是一个有帮助的AI助手"),
-    ("human", "{input}"),
-    MessagesPlaceholder(variable_name="agent_scratchpad"),
-])
-
-agent = create_openai_functions_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-
-# 运行Agent
-result = agent_executor.invoke({"input": "北京的天气怎么样？"})
-print(result["output"])
-
-result = agent_executor.invoke({"input": "计算 25 * 4 + 10"})
-print(result["output"])
-```
-
-### 7.2 ReAct Agent
-
-```python
-from langchain.agents import create_react_agent, AgentExecutor
-from langchain import hub
-
-# 使用Hub中的ReAct prompt
-prompt = hub.pull("hwchase17/react")
-
-# 创建ReAct Agent
-agent = create_react_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=tools,
-    verbose=True,
-    handle_parsing_errors=True
+# 🔥 使用init_chat_model初始化模型（支持多种模型）
+model = init_chat_model(
+    model="gpt-4o-mini",
+    model_provider="openai",
+    temperature=0
 )
 
-# 运行
-result = agent_executor.invoke({
-    "input": "北京的天气怎么样？如果温度超过20度，计算20*2"
-})
+# 🔥 创建Agent（新API更简洁）
+system_prompt = """你是一个有帮助的AI助手。
+你可以使用以下工具来帮助用户：
+- get_weather: 获取天气信息
+- calculate: 计算数学表达式
+
+请根据用户的问题选择合适的工具。"""
+
+agent = create_agent(
+    model=model,
+    tools=[get_weather, calculate],
+    system_prompt=system_prompt
+)
+
+# 运行Agent
+result = agent.invoke({"messages": [{"role": "user", "content": "北京的天气怎么样？"}]})
+print(result["messages"][-1].content)
+
+result = agent.invoke({"messages": [{"role": "user", "content": "计算 25 * 4 + 10"}]})
+print(result["messages"][-1].content)
+```
+
+### 7.2 工具调用（Tool Calling）
+
+```python
+# 🔥 现代化的工具调用方式（推荐）
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableConfig, chain
+from langchain_openai import ChatOpenAI
+
+# 定义工具
+@tool
+def search_database(query: str) -> str:
+    """在数据库中搜索信息。
+    
+    Args:
+        query: 搜索查询字符串
+    """
+    return f"搜索结果：{query}"
+
+# 创建带工具的模型
+model = ChatOpenAI(model="gpt-4o-mini")
+model_with_tools = model.bind_tools([search_database])
+
+# 🔥 创建工具调用链
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "你是一个有帮助的助手。"),
+    ("human", "{user_input}"),
+    ("placeholder", "{messages}"),
+])
+
+model_chain = prompt | model_with_tools
+
+@chain
+def tool_chain(user_input: str, config: RunnableConfig):
+    """处理工具调用的链"""
+    input_ = {"user_input": user_input}
+    ai_msg = model_chain.invoke(input_, config=config)
+    
+    # 如果有工具调用，执行工具
+    if ai_msg.tool_calls:
+        tool_msgs = search_database.batch(ai_msg.tool_calls, config=config)
+        return model_chain.invoke({**input_, "messages": [ai_msg, *tool_msgs]}, config=config)
+    
+    return ai_msg
+
+# 使用
+result = tool_chain.invoke("搜索LangChain相关信息")
+print(result.content)
 ```
 
 ---
@@ -579,15 +642,28 @@ conversation = ConversationChain(
 ### 9.1 内置工具
 
 ```python
-from langchain.tools import WikipediaQueryRun
+# 🔥 使用内置工具
+from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 
 # Wikipedia工具
 wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
-
-# 使用工具
 result = wikipedia.run("Python programming language")
 print(result)
+
+# 🔥 Web搜索工具（需要API密钥）
+from langchain_community.tools import DuckDuckGoSearchRun
+
+search = DuckDuckGoSearchRun()
+result = search.run("LangChain latest features")
+print(result)
+
+# 🔥 文件系统工具
+from langchain_community.tools import FileManagementToolkit
+from langchain_community.agent_toolkits import FileManagementToolkit
+
+toolkit = FileManagementToolkit(root_dir="./workspace")
+tools = toolkit.get_tools()
 ```
 
 ### 9.2 自定义工具
@@ -687,23 +763,76 @@ results = llm.batch([
 
 ## 12. 实战案例
 
-### 12.1 简单问答系统
+### 12.1 RAG问答系统（检索增强生成）
 
 ```python
-from langchain_openai import ChatOpenAI
+# 🔥 构建RAG系统（最常用的LLM应用模式）
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
 
-# 构建Chain
-prompt = ChatPromptTemplate.from_template("回答问题：{question}")
-model = ChatOpenAI(model="gpt-3.5-turbo")
-output_parser = StrOutputParser()
+# 1. 准备文档和向量存储
+documents = [
+    "LangChain是一个用于开发LLM应用的框架。",
+    "LangChain支持多种模型，包括OpenAI、Anthropic等。",
+    "LCEL是LangChain的核心特性，用于构建链式调用。"
+]
 
-chain = prompt | model | output_parser
+# 🔥 创建向量存储
+vectorstore = InMemoryVectorStore.from_texts(
+    texts=documents,
+    embedding=OpenAIEmbeddings()
+)
+retriever = vectorstore.as_retriever()
+
+# 2. 构建RAG链
+prompt = ChatPromptTemplate.from_template("""
+根据以下上下文回答问题：
+
+上下文：{context}
+
+问题：{question}
+
+回答：
+""")
+
+model = ChatOpenAI(model="gpt-4o-mini")
+
+# 🔥 使用LCEL构建RAG链
+rag_chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | prompt
+    | model
+    | StrOutputParser()
+)
 
 # 使用
-answer = chain.invoke({"question": "什么是LangChain？"})
+answer = rag_chain.invoke("什么是LangChain？")
 print(answer)
+```
+
+### 12.2 结构化输出
+
+```python
+# 🔥 生成结构化输出（Pydantic模型）
+from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, Field
+
+class Person(BaseModel):
+    """人物信息"""
+    name: str = Field(description="姓名")
+    age: int = Field(description="年龄")
+    occupation: str = Field(description="职业")
+
+# 🔥 使用with_structured_output
+model = ChatOpenAI(model="gpt-4o-mini")
+structured_llm = model.with_structured_output(Person)
+
+# 调用
+result = structured_llm.invoke("张三是一位35岁的软件工程师")
+print(f"姓名：{result.name}, 年龄：{result.age}, 职业：{result.occupation}")
 ```
 
 ---

@@ -107,11 +107,14 @@
 
 ### [01-Java核心](./01-Java核心/)
 - [Java基础](./01-Java核心/Java基础-完整教程.md)
+- [Java 21新特性](./01-Java核心/Java21新特性-完整教程.md)
+- [Java 24新特性](./01-Java核心/Java24新特性-完整教程.md) 🆕
 - [JVM](./01-Java核心/JVM-完整教程.md)
 
 ### [02-Spring生态](./02-Spring生态/)
 - [Spring Framework](./02-Spring生态/01-Spring-Framework-完整教程.md)
 - [Spring Boot](./02-Spring生态/02-Spring-Boot-完整教程.md)
+- [Spring Boot 4.0新特性](./02-Spring生态/02-Spring-Boot-4.0-新特性.md) 🆕
 - [Spring MVC](./02-Spring生态/03-Spring-MVC-完整教程.md)
 - [Spring WebFlux](./02-Spring生态/04-Spring-WebFlux-完整教程.md)
 - [Spring Cache](./02-Spring生态/05-Spring-Cache-完整教程.md)
@@ -209,6 +212,8 @@
 
 ### [11-补充知识](./11-补充知识/)
 - [并发编程](./11-补充知识/并发编程-完整教程.md)
+- [虚拟线程](./11-补充知识/虚拟线程-完整教程.md) 🆕
+- [GraalVM Native Image](./11-补充知识/GraalVM-Native-Image-完整教程.md) 🆕
 - [设计模式](./11-补充知识/设计模式-完整教程.md)
 - [算法与数据结构](./11-补充知识/算法与数据结构-完整教程.md)
 - [网络编程](./11-补充知识/网络编程-完整教程.md)
@@ -445,12 +450,14 @@ MySQL → Redis → MyBatis-Plus → Spring Cloud →
 #### 编程范式深化
 | 方向 | 说明 | 优先级 |
 |------|------|--------|
+| **虚拟线程深入** | Virtual Threads原理、结构化并发、作用域值 | P1 🆕 |
 | **函数式编程深入** | Java Stream API 高级用法、Optional 最佳实践、函数式接口设计 | P2 |
 | **响应式编程实战** | WebFlux 深入场景、Project Reactor 原理、背压处理策略 | P2 |
 
 #### 云原生进阶
 | 方向 | 说明 | 优先级 |
 |------|------|--------|
+| **GraalVM Native Image** | AOT编译、原生镜像构建、启动性能优化 | P2 🆕 |
 | **Serverless 架构** | AWS Lambda / 阿里云函数计算 / Knative | P3 |
 | **Service Mesh 深入** | Istio 流量治理、Envoy 配置、可观测性实践 | P3 |
 | **GitOps 实践** | ArgoCD / Flux、声明式基础设施管理 | P3 |
@@ -458,8 +465,8 @@ MySQL → Redis → MyBatis-Plus → Spring Cloud →
 #### 新兴技术方向
 | 方向 | 说明 | 优先级 |
 |------|------|--------|
-| **GraalVM 与原生镜像** | AOT 编译、Native Image 构建、启动性能优化 | P3 |
-| **Virtual Threads（JDK 21）** | 虚拟线程原理、与传统线程池对比、迁移策略 | P2 |
+| **Docker Compose集成** | Spring Boot 4.0原生支持、开发环境自动化 | P1 🆕 |
+| **Testcontainers深度集成** | 容器化测试、Spring Boot自动配置 | P1 🆕 |
 | **AI 工程化** | Spring AI 深入、LLM 应用开发、RAG 架构设计 | P3 |
 
 #### 软技能提升
@@ -647,9 +654,9 @@ A: 欢迎贡献！请查看[贡献指南](#-贡献指南)了解详细信息。
 - ✅ 提供完整的学习路径和技术选型指南
 
 **技术版本**：
-- Java：JDK 17+
-- Spring Boot：3.2.x
-- Spring Cloud：2023.0.x
+- Java：JDK 24+ (支持JDK 17/21)
+- Spring Boot：4.0.x (兼容3.2.x)
+- Spring Cloud：2024.0.x
 - MySQL：8.0.x
 - Redis：7.2.x
 - Kafka：3.6.x
@@ -676,6 +683,14 @@ A: 欢迎贡献！请查看[贡献指南](#-贡献指南)了解详细信息。
 - 补充更多最佳实践
 
 ### 更新日志
+
+**2025-02-01 - v1.1.0** 🆕
+- ✅ 新增Java 24新特性教程
+- ✅ 新增Spring Boot 4.0新特性教程
+- ✅ 新增虚拟线程完整教程
+- ✅ 新增GraalVM Native Image教程
+- ✅ 基于Context7更新所有技术版本
+- ✅ 优化学习路径和技术选型建议
 
 **2024-12-31 - v1.0.0**
 - 🎉 项目初始化
